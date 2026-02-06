@@ -65,7 +65,7 @@ const ComparisonSection: React.FC = () => {
           >
             <div className="absolute inset-0">
               <img 
-                src="/ppf-po-aplikaci.webp" 
+                src="/ppf-pred-aplikaci.webp" 
                 alt="PPF Protected Glossy" 
                 className="w-full h-full object-cover"
               />

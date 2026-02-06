@@ -81,18 +81,17 @@ const FeatureGridSection: React.FC<FeatureGridSectionProps> = ({ onCtaClick }) =
              <div className="bg-white rounded-[2.5rem] p-4 md:p-6 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-gray-100 group hover:shadow-[0_30px_80px_-15px_rgba(0,0,0,0.1)] transition-all duration-500">
               <div className="relative overflow-hidden rounded-[2rem]">
                 <img 
-                  src="/foto2.webp" 
+                  src="/dap.webp" 
                   alt="Aplikace PPF fólie v showroomu" 
                   className="w-full h-[350px] md:h-[450px] object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               <div className="p-6 md:p-8">
-                <h4 className="text-2xl font-bold text-black mb-4 font-sans">Jak funguje samohojící efekt?</h4>
+                <h4 className="text-2xl font-bold text-black mb-4 font-sans">Precizní technologie bez rizika poškození laku</h4>
                 <p className="text-gray-600 leading-relaxed font-sans">
-                  PPF fólie má speciální vrchní vrstvu, která reaguje na teplo. 
-                  Při teplotě od 60°C (horké slunce, teplá voda při mytí) se materiál sám vyrovná 
-                  a drobné škrábance zmizí. Auto parkujete na slunci nebo umyjete teplou vodou – a škrábance jsou pryč.
+                  U nás máte jistotu maximální přesnosti. Při aplikaci PPF fólií používáme profesionální software DAP, díky kterému jsou fólie přesně nařezané dopředu pomocí plotrovacího stroje.
+Na rozdíl od běžné praxe se tedy nic neřeže ručně přímo na laku vozu, čímž eliminujeme riziko nechtěných škrábanců a nedokonalostí. Výsledkem je dokonale čistá instalace bez kompromisů.
                 </p>
               </div>
             </div>

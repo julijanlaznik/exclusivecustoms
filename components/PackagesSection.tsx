@@ -111,7 +111,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
                 onMouseEnter={handleMouseEnter}
                 className="w-full cta-button py-4 rounded-xl md:rounded-2xl text-sm md:text-base font-bold"
               >
-                Chci tento balíček →
+                Chci probrat tuto variantu →
               </button>
             </div>
             

@@ -65,7 +65,7 @@ const ComparisonSection: React.FC = () => {
           >
             <div className="absolute inset-0">
               <img 
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=2000" 
+                src="/ppf-po-aplikaci.webp" 
                 alt="PPF Protected Glossy" 
                 className="w-full h-full object-cover"
               />
@@ -76,7 +76,7 @@ const ComparisonSection: React.FC = () => {
               style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=2000" 
+                src="/ppf-bez-aplikace.webp" 
                 alt="Unprotected Dull Paint" 
                 className="w-full h-full object-cover"
               />

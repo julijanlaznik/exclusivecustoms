@@ -62,7 +62,7 @@ const FeatureGridSection: React.FC<FeatureGridSectionProps> = ({ onCtaClick }) =
             <div className="bg-white rounded-[2.5rem] p-4 md:p-6 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-gray-100 group hover:shadow-[0_30px_80px_-15px_rgba(0,0,0,0.1)] transition-all duration-500">
               <div className="relative overflow-hidden rounded-[2rem]">
                 <img 
-                  src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=1200" 
+                  src="/foto1.webp" 
                   alt="Detail luxusního vozu s PPF" 
                   className="w-full h-[350px] md:h-[450px] object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
@@ -84,7 +84,7 @@ const FeatureGridSection: React.FC<FeatureGridSectionProps> = ({ onCtaClick }) =
              <div className="bg-white rounded-[2.5rem] p-4 md:p-6 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-gray-100 group hover:shadow-[0_30px_80px_-15px_rgba(0,0,0,0.1)] transition-all duration-500">
               <div className="relative overflow-hidden rounded-[2rem]">
                 <img 
-                  src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1200" 
+                  src="/foto2.webp" 
                   alt="Aplikace PPF fólie v showroomu" 
                   className="w-full h-[350px] md:h-[450px] object-cover transition-transform duration-1000 group-hover:scale-110"
                 />

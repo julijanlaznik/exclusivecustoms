@@ -50,9 +50,6 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
         
         {/* Unified Header Style */}
         <div className="text-center mb-16">
-          <span className="text-black text-sm md:text-base font-normal mb-4 block font-sans tracking-tight">
-            Flexibilita
-          </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-12 leading-tight font-sans">
             Rozsah ochrany laku
           </h2>

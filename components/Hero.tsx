@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
                 onMouseEnter={handleMouseEnter}
                 className="w-full md:w-auto cta-button px-10 py-4 md:px-12 md:py-5 rounded-full text-lg md:text-xl font-bold shadow-2xl"
               >
-                Bezplatně se poradit →
+                Domluvit nezávaznou konzultaci →
               </button>
               
               <div className="mt-6 md:mt-8 flex items-center gap-3 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">

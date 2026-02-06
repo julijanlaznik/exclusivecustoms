@@ -1,6 +1,29 @@
 
 import React, { forwardRef, useState } from 'react';
 
+// Komponenta pro fotky definovaná mimo, aby se zabránilo zbytečnému odpojování a připojování (unmount/remount)
+// při každém re-renderu FormSection (např. při psaní do inputu), což způsobovalo problikávání animací.
+const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
+  <div className={`relative h-48 md:h-56 max-w-sm animate-fade-up ${className}`}>
+    {/* Back photo: Office/Consultation */}
+    <div className="absolute left-0 top-0 w-3/4 aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl z-10 transform -rotate-2">
+      <img 
+        src="/foto1.webp" 
+        alt="Exclusive Customs Office" 
+        className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+      />
+    </div>
+    {/* Front photo: Workshop with cars */}
+    <div className="absolute right-4 bottom-0 w-2/3 aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 transform rotate-2 translate-y-4">
+      <img 
+        src="/interier.webp" 
+        alt="Workshop detailing" 
+        className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
+      />
+    </div>
+  </div>
+);
+
 const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('+420 ');
@@ -33,28 +56,6 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
     setSubmitted(true);
   };
 
-  // Komponenta pro fotky, abychom ji nemuseli definovat dvakrát
-  const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
-    <div className={`relative h-48 md:h-56 max-w-sm animate-fade-up ${className}`}>
-      {/* Back photo: Office/Consultation */}
-      <div className="absolute left-0 top-0 w-3/4 aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl z-10 transform -rotate-2">
-        <img 
-          src="/foto1.webp" 
-          alt="Exclusive Customs Office" 
-          className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
-        />
-      </div>
-      {/* Front photo: Workshop with cars */}
-      <div className="absolute right-4 bottom-0 w-2/3 aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 transform rotate-2 translate-y-4">
-        <img 
-          src="/interier.webp" 
-          alt="Workshop detailing" 
-          className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
-        />
-      </div>
-    </div>
-  );
-
   return (
     <section ref={ref} className="py-24 md:py-32 bg-[#0a1111] relative overflow-hidden min-h-[600px] flex items-center">
       {/* Background Glows */}
@@ -75,7 +76,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
               Prémiová PPF ochrana pro vozy, na kterých skutečně záleží. Stačí vyplnit kontakt a my se postaráme o zbytek.
             </p>
 
-            {/* Social Proof Element - Now above photos on desktop */}
+            {/* Social Proof Element */}
             <div className="mt-10 flex items-center gap-4 animate-fade-up delay-2">
               <div className="flex -space-x-3">
                 {[1, 2, 3].map((i) => (

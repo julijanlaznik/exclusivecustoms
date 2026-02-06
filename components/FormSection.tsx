@@ -181,7 +181,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                     <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white font-sans uppercase tracking-tight">Hotovo.😁<br />První krok máte za sebou.</h3>
                     <p className="text-lg text-brand-light font-sans font-light max-w-xs mx-auto leading-relaxed">
                       Vaše zpráva je u nás. Bereme si to teď na starost.
-                      Brzy se vám ozveme a společně doladíme ochranu pro váš vůz.
+                      Obratem se vám ozveme a společně doladíme ochranu pro váš vůz.
 
                     </p>
                   </div>

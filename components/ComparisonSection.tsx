@@ -39,7 +39,6 @@ const ComparisonSection: React.FC = () => {
   return (
     <section ref={sectionRef} className="pt-24 pb-16 md:pt-[150px] md:pb-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Horní textový blok */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-10 items-start">
           <div className={`${isVisible ? 'animate-fade-up' : 'opacity-0'} transition-all duration-1000 md:-translate-y-12`}>
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-black leading-tight font-sans">
@@ -57,7 +56,6 @@ const ComparisonSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Interaktivní Slider - Adjusted height for mobile scroll comfort */}
         <div className={`relative max-w-5xl mx-auto mt-12 md:mt-20 ${isVisible ? 'animate-fade-up delay-3' : 'opacity-0'}`}>
           <div 
             ref={containerRef}
@@ -65,50 +63,46 @@ const ComparisonSection: React.FC = () => {
             onMouseMove={onMouseMove}
             onTouchMove={onTouchMove}
           >
-            {/* Obrázek "PO" */}
             <div className="absolute inset-0">
               <img 
-                src="/ppf-po-aplikaci.webp" 
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=2000" 
                 alt="PPF Protected Glossy" 
                 className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Obrázek "PŘED" */}
             <div 
               className="absolute inset-0 z-10 grayscale-[0.3] contrast-[0.9] brightness-[0.8]"
               style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
             >
               <img 
-                src="/ppf-pred-aplikaci.webp" 
+                src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=2000" 
                 alt="Unprotected Dull Paint" 
                 className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Slider Line & Handle */}
             <div 
-              className="absolute top-0 bottom-0 z-20 w-0.5 bg-white/50"
+              className="absolute top-0 bottom-0 z-20 w-1 bg-brand"
               style={{ left: `${sliderPos}%` }}
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full shadow-[0_0_20px_rgba(0,0,0,0.3)] border border-white/50 flex items-center justify-center">
-                  <div className="flex gap-1">
-                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-                    <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                <div className="w-10 h-10 md:w-14 md:h-14 bg-white rounded-full shadow-[0_0_30px_rgba(148,207,205,0.6)] border-2 border-brand flex items-center justify-center transition-transform group-hover:scale-110">
+                  <div className="flex gap-1.5">
+                    <div className="w-1.5 h-1.5 bg-brand rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-brand rounded-full"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Štítky pod sliderem */}
           <div className="flex justify-between mt-6">
             <div className="bg-white px-3 py-1.5 md:px-5 md:py-2 border border-gray-100 shadow-sm rounded-lg">
                <span className="text-[9px] md:text-xs font-bold uppercase tracking-wider text-gray-400">Bez ochrany</span>
             </div>
-            <div className="bg-white px-3 py-1.5 md:px-5 md:py-2 border border-gray-100 shadow-sm rounded-lg">
-               <span className="text-[9px] md:text-xs font-bold uppercase tracking-wider text-gray-600">S PPF fólií</span>
+            <div className="bg-brand/10 px-3 py-1.5 md:px-5 md:py-2 border border-brand/20 shadow-sm rounded-lg">
+               <span className="text-[9px] md:text-xs font-bold uppercase tracking-wider text-brand-dark">S PPF fólií</span>
             </div>
           </div>
         </div>

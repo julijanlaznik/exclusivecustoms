@@ -3,98 +3,156 @@ import React, { forwardRef, useState } from 'react';
 
 const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [submitted, setSubmitted] = useState(false);
+  const [phone, setPhone] = useState('+420 ');
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let input = e.target.value;
+    
+    // Zamezení smazání předvolby +420 a mezery za ní
+    if (!input.startsWith('+420 ')) {
+      input = '+420 ';
+    }
+
+    // Extrahujeme pouze číslice, které uživatel napsal ZA předvolbu
+    const rawDigits = input.substring(5).replace(/\D/g, '').substring(0, 9);
+    
+    // Formátování: +420 123 456 789
+    let formatted = '+420 ';
+    for (let i = 0; i < rawDigits.length; i++) {
+      if (i > 0 && i % 3 === 0) {
+        formatted += ' ';
+      }
+      formatted += rawDigits[i];
+    }
+
+    setPhone(formatted);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
   };
 
-  if (submitted) {
-    return (
-      <section ref={ref} className="py-16 md:py-24 bg-white">
-        <div className="px-[10px]">
-          <div className="w-full bg-[#5ccdc5] p-10 md:p-24 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl text-center text-white">
-            <div className="w-16 h-16 md:w-20 md:h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
-              <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans">Děkujeme!</h2>
-            <p className="text-lg md:text-xl text-white/90 font-sans font-light">
-              Ozveme se vám co nejdříve pro naplánování vaší bezplatné konzultace.
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-white">
-      <div className="px-[10px]">
-        <div className="w-full bg-[#5ccdc5] p-6 md:p-20 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+    <section ref={ref} className="py-24 md:py-32 bg-[#0a1111] relative overflow-hidden min-h-[600px] flex items-center">
+      {/* Background Glows */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[700px] h-[700px] bg-brand/10 rounded-full blur-[180px] -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[130px] -z-10"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
-          <div className="relative z-10">
-            <h2 className="text-2xl md:text-5xl font-bold text-white text-center mb-10 md:mb-12 font-sans tracking-tight max-w-2xl mx-auto leading-tight">
-              Chcete ochránit své auto? Začněte tady
+          {/* Left Side: Conversion Heading */}
+          <div className="lg:w-[45%] w-full">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sans leading-[1.1] tracking-tight">
+              Chcete chránit <br />
+              svůj vůz? <br />
+              <span className="text-brand">Začněte zde.</span>
             </h2>
-            
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-              <div className="md:col-span-1">
-                <label htmlFor="car" className="block text-[10px] md:text-sm font-bold text-white mb-2 md:mb-3 font-sans uppercase tracking-wider opacity-90">
-                  Jaké auto máte?
-                </label>
-                <input
-                  required
-                  type="text"
-                  id="car"
-                  placeholder="Např. BMW M5, Tesla..."
-                  className="w-full px-5 py-4 md:px-6 md:py-5 bg-[#49a9a3] border border-white/10 rounded-xl md:rounded-2xl text-white placeholder:text-white/40 focus:ring-2 focus:ring-white/30 outline-none transition-all font-sans text-base md:text-lg"
-                />
+            <p className="mt-6 text-white/40 text-lg font-light leading-relaxed max-w-sm font-sans">
+              Prémiová PPF ochrana pro vozy, na kterých skutečně záleží. Stačí vyplnit kontakt a my se postaráme o zbytek.
+            </p>
+
+            {/* Social Proof Element with requested line break */}
+            <div className="mt-8 flex items-center gap-4">
+              <div className="flex -space-x-3">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#0a1111] bg-gray-800 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={`https://i.pravatar.cc/100?u=${i + 10}`} 
+                      alt="User" 
+                      className="w-full h-full object-cover grayscale opacity-80"
+                    />
+                  </div>
+                ))}
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#0a1111] bg-brand flex items-center justify-center text-black text-[10px] md:text-xs font-bold font-sans">
+                  +500
+                </div>
               </div>
-              
-              <div className="md:col-span-1">
-                <label htmlFor="contact" className="block text-[10px] md:text-sm font-bold text-white mb-2 md:mb-3 font-sans uppercase tracking-wider opacity-90">
-                  Telefon nebo WhatsApp
-                </label>
-                <input
-                  required
-                  type="tel"
-                  id="contact"
-                  placeholder="+420 777 000 000"
-                  className="w-full px-5 py-4 md:px-6 md:py-5 bg-[#49a9a3] border border-white/10 rounded-xl md:rounded-2xl text-white placeholder:text-white/40 focus:ring-2 focus:ring-white/30 outline-none transition-all font-sans text-base md:text-lg"
-                />
-              </div>
-              
-              <div className="md:col-span-2">
-                <label htmlFor="note" className="block text-[10px] md:text-sm font-bold text-white mb-2 md:mb-3 font-sans uppercase tracking-wider opacity-90">
-                  Poznámka <span className="font-normal opacity-60 text-[9px]">(volitelné)</span>
-                </label>
-                <textarea
-                  id="note"
-                  rows={3}
-                  placeholder="Mám zájem o polep celé přední části..."
-                  className="w-full px-5 py-4 md:px-6 md:py-5 bg-[#49a9a3] border border-white/10 rounded-xl md:rounded-2xl text-white placeholder:text-white/40 focus:ring-2 focus:ring-white/30 outline-none transition-all resize-none font-sans text-base md:text-lg"
-                ></textarea>
-              </div>
-              
-              <div className="md:col-span-2 mt-4">
-                <button
-                  type="submit"
-                  className="w-full py-5 md:py-6 bg-white text-[#5ccdc5] rounded-xl md:rounded-2xl text-lg md:text-xl font-bold shadow-xl hover:bg-gray-50 active:scale-[0.98] transition-all duration-300 font-oxanium uppercase tracking-wider"
-                >
-                  Chci bezplatnou konzultaci →
-                </button>
-              </div>
-              
-              <div className="md:col-span-2">
-                <p className="text-center text-[10px] md:text-sm text-white/60 font-sans italic uppercase tracking-wider">
-                  ozveme se do 24 hodin.
-                </p>
-              </div>
-            </form>
+              <p className="text-white/60 text-xs md:text-sm font-light font-sans max-w-[200px] leading-relaxed">
+                Přidejte se k <span className="text-white font-bold">500+ majitelům</span>,<br />
+                kteří své vozy již chrání.
+              </p>
+            </div>
           </div>
+
+          {/* Right Side: Optimized Wide Form / Success Message */}
+          <div className="lg:w-[55%] w-full min-h-[450px] flex items-center">
+            <div className="relative w-full">
+              {/* Subtle background glow */}
+              <div className="absolute -inset-1 bg-brand/10 rounded-[3rem] blur-2xl pointer-events-none"></div>
+              
+              <div className="relative bg-[#111c1c]/80 backdrop-blur-md border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl transition-all duration-500 min-h-[450px] flex flex-col justify-center">
+                
+                {!submitted ? (
+                  <form onSubmit={handleSubmit} className="space-y-6 animate-fade-up">
+                    <div className="space-y-4">
+                      <div className="relative">
+                        <input
+                          required
+                          type="text"
+                          id="car"
+                          placeholder="Model vašeho vozu"
+                          className="w-full bg-white/5 border border-white/10 py-5 px-8 text-white placeholder:text-white/20 rounded-full outline-none focus:border-brand focus:bg-white/10 transition-all font-sans text-lg md:text-xl"
+                        />
+                      </div>
+
+                      <div className="relative">
+                        <input
+                          required
+                          type="tel"
+                          id="contact"
+                          value={phone}
+                          onChange={handlePhoneChange}
+                          placeholder="+420 000 000 000"
+                          className="w-full bg-white/5 border border-white/10 py-5 px-8 text-white placeholder:text-white/20 rounded-full outline-none focus:border-brand focus:bg-white/10 transition-all font-sans text-lg md:text-xl"
+                        />
+                      </div>
+
+                      <div className="relative">
+                        <textarea
+                          id="note"
+                          rows={3}
+                          placeholder="Chcete se zeptat na termín nebo konkrétní balíček? (Zcela volitelné)"
+                          className="w-full bg-white/5 border border-white/10 py-6 px-8 text-white placeholder:text-white/20 rounded-[2rem] outline-none focus:border-brand focus:bg-white/10 transition-all font-sans text-lg md:text-xl resize-none"
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div className="pt-4">
+                      <button
+                        type="submit"
+                        className="group relative w-full py-5 bg-brand text-black font-bold text-lg md:text-xl rounded-full transition-all duration-500 shadow-[0_15px_50px_-10px_rgba(92,205,197,0.4)] overflow-hidden active:scale-[0.98]"
+                      >
+                        <span className="relative z-10 font-oxanium uppercase tracking-[0.15em]">
+                          Chci se poradit →
+                        </span>
+                        <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                      </button>
+                      
+                      <p className="text-center mt-6 text-[10px] md:text-xs text-white/30 uppercase tracking-[0.2em] font-sans">
+                        Odpovídáme průměrně do 2 hodin
+                      </p>
+                    </div>
+                  </form>
+                ) : (
+                  <div className="text-center animate-fade-up py-10">
+                    <div className="w-20 h-20 bg-brand rounded-full flex items-center justify-center mx-auto mb-8 shadow-[0_0_40px_rgba(92,205,197,0.4)]">
+                      <svg className="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white font-sans uppercase tracking-tight">Skvělá volba!</h3>
+                    <p className="text-lg text-brand-light font-sans font-light max-w-xs mx-auto leading-relaxed">
+                      Vaše zpráva je u nás. Ozveme se vám co nejdříve, abychom společně navrhli nejlepší ochranu pro váš vůz.
+                    </p>
+                  </div>
+                )}
+
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

@@ -51,22 +51,20 @@ const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-20 bg-white overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Unified Heading Hierarchy */}
-        <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <p className="text-black text-sm md:text-base font-normal mb-4 font-sans tracking-tight">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <span className="text-black text-sm md:text-base font-normal mb-4 block font-sans tracking-tight">
             Váš vůz u nás není měsíc
-          </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-black leading-tight font-sans tracking-tight">
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-12 leading-tight font-sans">
             Spolupráce s námi je<br />rychlá a bez stresu
           </h2>
         </div>
 
-        {/* Compact Vertical Process - Article Style */}
         <div className="relative space-y-10">
-          <div className={`absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gray-100 origin-top transition-transform duration-[1500ms] ${isVisible ? 'scale-y-100' : 'scale-y-0'}`}></div>
+          <div className={`absolute left-4 md:left-6 top-0 bottom-0 w-1 bg-[#94cfcd]/20 origin-top transition-transform duration-[1500ms] ${isVisible ? 'scale-y-100' : 'scale-y-0'}`}></div>
 
           {steps.map((step, index) => (
             <div 
@@ -79,8 +77,8 @@ const ProcessSection: React.FC = () => {
               }}
             >
               <div className="relative z-10 flex-shrink-0 mt-1">
-                <div className="w-8 h-8 md:w-12 md:h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center shadow-sm">
-                  <span className="text-xs md:text-sm font-bold text-black font-oxanium">
+                <div className="w-8 h-8 md:w-12 md:h-12 bg-white border-2 border-[#94cfcd] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(148,207,205,0.3)] transition-transform hover:scale-110">
+                  <span className="text-xs md:text-sm font-bold text-[#7ab8b6] font-oxanium">
                     {step.number}
                   </span>
                 </div>

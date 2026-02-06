@@ -11,6 +11,13 @@
       tailwind.config = {
         theme: {
           extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#5ccdc5',
+                dark: '#4ab8b0',
+                light: '#8ee5df',
+              }
+            },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
               oxanium: ['Oxanium', 'cursive'],
@@ -25,7 +32,7 @@
             scroll-behavior: smooth;
         }
         
-        /* Primární CTA tlačítko (výrazné) */
+        /* Primární CTA tlačítko */
         .cta-button {
             position: relative;
             background-color: #5ccdc5;
@@ -63,7 +70,7 @@
             transform: translateY(-2px);
         }
 
-        /* Sekundární CTA tlačítko (méně výrazné - outline) */
+        /* Sekundární CTA tlačítko */
         .cta-button-secondary {
             position: relative;
             background-color: transparent;
@@ -83,7 +90,7 @@
             left: var(--x, 50%);
             width: 0;
             height: 0;
-            background-color: white;
+            background-color: #5ccdc5;
             border-radius: 50%;
             transform: translate(-50%, -50%);
             transition: width 0.6s cubic-bezier(0.1, 0, 0.3, 1), height 0.6s cubic-bezier(0.1, 0, 0.3, 1);
@@ -96,46 +103,20 @@
         }
 
         .cta-button-secondary:hover {
-            color: #5ccdc5 !important;
+            color: white !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(92, 205, 197, 0.2);
         }
         
-        /* Entrance Animations */
         @keyframes popUp {
-          0% {
-            opacity: 0;
-            transform: translateY(40px) scale(0.8);
-          }
-          70% {
-            transform: translateY(-5px) scale(1.05);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
+          0% { opacity: 0; transform: translateY(40px) scale(0.8); }
+          70% { transform: translateY(-5px) scale(1.05); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         @keyframes fadeInUpCustom {
-          0% {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes fadeInRight {
-          from {
-            opacity: 0;
-            transform: translateX(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+          0% { opacity: 0; transform: translateY(30px); }
+          100% { opacity: 1; transform: translateY(0); }
         }
 
         .animate-fade-up {
@@ -144,10 +125,6 @@
         
         .animate-pop-up {
           animation: popUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-        
-        .animate-fade-right {
-          animation: fadeInRight 0.8s ease-out forwards;
         }
 
         .delay-1 { animation-delay: 0.2s; opacity: 0; }

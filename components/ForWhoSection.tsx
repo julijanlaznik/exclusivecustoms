@@ -115,7 +115,7 @@ const ForWhoSection: React.FC<ForWhoSectionProps> = ({ onCtaClick }) => {
               
               <div className="relative overflow-hidden rounded-[3rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] border border-gray-100">
                 <img 
-                  src="/foto4.webp" 
+                  src="https://images.unsplash.com/photo-1611016186353-9af58c69a533?auto=format&fit=crop&q=80&w=1200" 
                   alt="Luxusní auto v péči Exclusive Customs" 
                   className="w-full h-[500px] lg:h-[700px] object-cover transition-transform duration-[2s] group-hover:scale-105"
                 />

@@ -45,20 +45,22 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header - Light theme aligned */}
-        <div className="text-center mb-10 md:mb-16">
-          <p className="text-[#5ccdc5] text-xs md:text-sm font-bold uppercase tracking-widest mb-3">Flexibilita</p>
-          <h2 className="text-3xl md:text-5xl font-black text-black font-sans tracking-tight">
+        {/* Unified Header Style */}
+        <div className="text-center mb-16">
+          <span className="text-black text-sm md:text-base font-normal mb-4 block font-sans tracking-tight">
+            Flexibilita
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-12 leading-tight font-sans">
             Rozsah ochrany laku
           </h2>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
           
-          {/* Left: Image Container - Fixed Aspect Ratio on mobile */}
+          {/* Left: Image Container */}
           <div className="w-full lg:flex-1 order-1 lg:order-2">
             <div className="relative aspect-[16/10] md:aspect-video lg:aspect-square overflow-hidden rounded-[2rem] md:rounded-[3rem] shadow-2xl border border-gray-100">
               {packages.map((pkg, idx) => (
@@ -71,7 +73,6 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
                   }`}
                 />
               ))}
-              {/* Subtle Overlay to make text pop if we added it, but keeping it clean */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
             </div>
           </div>
@@ -80,7 +81,6 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
           <div className="w-full lg:w-[450px] order-2 lg:order-1 flex flex-col justify-center">
             <div className="bg-gray-50 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-gray-100">
               
-              {/* Package Selector - 2x2 Grid on Mobile, vertical on Desktop */}
               <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 md:gap-4 mb-8">
                 {packages.map((pkg, idx) => (
                   <button
@@ -88,8 +88,8 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
                     onClick={() => setActivePackage(idx)}
                     className={`px-4 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl text-[10px] md:text-sm font-bold transition-all duration-300 border text-center font-oxanium uppercase tracking-wider ${
                       activePackage === idx
-                        ? 'bg-[#5ccdc5] border-[#5ccdc5] text-white shadow-lg scale-[1.02]'
-                        : 'bg-white border-gray-200 text-gray-400 hover:border-[#5ccdc5]/30'
+                        ? 'bg-[#94cfcd] border-[#94cfcd] text-white shadow-lg scale-[1.02]'
+                        : 'bg-white border-gray-200 text-gray-400 hover:border-[#94cfcd]/30'
                     }`}
                   >
                     {pkg.name}
@@ -97,7 +97,6 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
                 ))}
               </div>
 
-              {/* Description Area */}
               <div className="min-h-[100px] mb-8">
                 <h3 className="text-xl md:text-2xl font-bold text-black mb-3 font-sans">
                   {packages[activePackage].name}
@@ -107,7 +106,6 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
                 </p>
               </div>
 
-              {/* Internal CTA to make it super conversion-friendly */}
               <button
                 onClick={onCtaClick}
                 onMouseEnter={handleMouseEnter}

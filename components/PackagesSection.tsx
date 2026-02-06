@@ -12,25 +12,25 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ onCtaClick }) => {
     {
       id: 0,
       name: 'Bikini Front',
-      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1200',
+      image: '/tesla2_Bikiny_front.webp',
       description: 'Základní ochrana nejvíce exponovaných částí: přední hrana kapoty, zrcátka a náběžné hrany blatníků.'
     },
     {
       id: 1,
       name: 'Full Front',
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&q=80&w=1200',
+      image: '/tesla2_full_front-1536x668.webp',
       description: 'Kompletní ochrana celého předku vozu. Chrání celou kapotu, nárazník, světla i oba blatníky.'
     },
     {
       id: 2,
       name: 'Full Car',
-      image: 'https://images.unsplash.com/photo-1567818735868-e71b99932e29?auto=format&fit=crop&q=80&w=1200',
+      image: '/tesla2_full_car-1536x668.webp',
       description: 'Maximální bezpečí. Celý vůz je v neprůstřelném krunýři. Žádné kompromisy, žádné obavy o lak.'
     },
     {
       id: 3,
       name: 'Individuální',
-      image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=1200',
+      image: '/custom-balicek-1536x668.webp',
       description: 'Potřebujete chránit jen prahy, nakládací hranu kufru nebo interiér? Navrhneme řešení na míru.'
     }
   ];

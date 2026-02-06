@@ -41,9 +41,6 @@ const FeatureGridSection: React.FC<FeatureGridSectionProps> = ({ onCtaClick }) =
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Heading Section - Popup Animation */}
         <div className={`text-center max-w-4xl mx-auto mb-20 transition-all duration-[1200ms] cubic-bezier(0.34, 1.56, 0.64, 1) ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-95'}`}>
-          <p className="text-black text-sm md:text-base font-normal mb-4 font-sans tracking-tight">
-            Máme pro vás řešení:
-          </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-8 leading-tight font-sans">
             PPF fólie - nejúčinnější cesta, jak ochránit váš vůz
           </h2>

@@ -4,9 +4,9 @@ import React, { forwardRef, useState } from 'react';
 // Komponenta pro fotky definovaná mimo, aby se zabránilo zbytečnému odpojování a připojování (unmount/remount)
 // při každém re-renderu FormSection (např. při psaní do inputu), což způsobovalo problikávání animací.
 const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
-  <div className={`relative h-48 md:h-56 max-w-sm animate-fade-up ${className}`}>
+  <div className={`relative h-56 md:h-64 w-full max-w-[340px] md:max-w-sm mx-auto lg:mx-0 animate-fade-up ${className}`}>
     {/* Back photo: Office/Consultation */}
-    <div className="absolute left-0 top-0 w-3/4 aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl z-10 transform -rotate-2">
+    <div className="absolute left-0 top-0 w-[85%] aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl z-10 transform -rotate-2">
       <img 
         src="/foto1.webp" 
         alt="Exclusive Customs Office" 
@@ -14,7 +14,7 @@ const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
       />
     </div>
     {/* Front photo: Workshop with cars */}
-    <div className="absolute right-4 bottom-0 w-2/3 aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 transform rotate-2 translate-y-4">
+    <div className="absolute right-0 bottom-4 w-[75%] aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 transform rotate-2 translate-y-4">
       <img 
         src="/interier.webp" 
         alt="Workshop detailing" 
@@ -66,7 +66,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
           {/* Left Side: Conversion Heading & Social Proof */}
-          <div className="lg:w-[45%] w-full">
+          <div className="lg:w-[45%] w-full text-left">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sans leading-[1.1] tracking-tight animate-fade-up">
               Chcete chránit <br />
               svůj vůz? <br />
@@ -92,7 +92,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                   +500
                 </div>
               </div>
-              <p className="text-white/60 text-xs md:text-sm font-light font-sans max-w-[200px] leading-relaxed">
+              <p className="text-white/60 text-xs md:text-sm font-light font-sans max-w-[200px] leading-relaxed text-left">
                 Přidejte se k <span className="text-white font-bold">500+ majitelům</span>,<br />
                 kteří své vozy již chrání.
               </p>
@@ -177,7 +177,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
               </div>
             </div>
 
-            {/* Mobile Photos: Below the form card */}
+            {/* Mobile Photos: Definitely visible here below the form card */}
             <ShowroomPhotos className="lg:hidden mt-20 mb-8" />
           </div>
 

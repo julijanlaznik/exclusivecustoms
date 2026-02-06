@@ -44,10 +44,9 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
               99,9 % ochrana<br />proti škrábancům
             </h1>
             
-            <p className="mt-4 md:mt-6 text-sm md:text-xl text-white/90 max-w-lg leading-relaxed font-extralight drop-shadow-md animate-fade-up delay-1">
+           <p className="mt-4 md:mt-6 text-sm md:text-xl text-white/90 max-w-2xl leading-relaxed font-extralight drop-shadow-md animate-fade-up delay-1">
               Neviditelná PPF fólie, která chrání lak vašeho auta před škrábanci, kamínky a běžným opotřebením – každý den, při každé jízdě.
-            </p>
-            
+          </p>
             <div className="mt-8 md:mt-10 flex flex-col items-start animate-fade-up delay-2">
               <button
                 onClick={onCtaClick}

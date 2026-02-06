@@ -169,7 +169,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white font-sans uppercase tracking-tight">Hotovo. <br />První krok máte za sebou.</h3>
+                    <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white font-sans uppercase tracking-tight">Hotovo.😁<br />První krok máte za sebou.</h3>
                     <p className="text-lg text-brand-light font-sans font-light max-w-xs mx-auto leading-relaxed">
                       Vaše zpráva je u nás. Bereme si to teď na starost.
                       Brzy se vám ozveme a společně doladíme ochranu pro váš vůz.

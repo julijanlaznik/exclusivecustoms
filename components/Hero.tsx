@@ -99,7 +99,7 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
               <span className="text-[8px] md:text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">zkušeností</span>
             </div>
             <div className="flex flex-col items-start border-l-2 border-brand pl-3 md:pl-4 animate-pop-up delay-6">
-              <span className="text-xl md:text-4xl font-black text-black font-oxanium leading-none">1 000+</span>
+              <span className="text-xl md:text-4xl font-black text-black font-oxanium leading-none">500+</span>
               <span className="text-[8px] md:text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">vozů</span>
             </div>
           </div>

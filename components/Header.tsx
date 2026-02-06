@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
           >
             {/* Logo bez boxu, ještě o něco menší rozměry */}
             <img 
-              src="/logo.webp" 
+              src="logo.webp" 
               alt="Exclusive Customs Logo" 
               className="w-10 h-10 md:w-16 md:h-16 object-contain"
             />

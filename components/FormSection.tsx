@@ -6,14 +6,14 @@ const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
   <div className={`relative h-56 md:h-64 w-full max-w-[340px] md:max-w-sm mx-auto lg:mx-0 animate-fade-up ${className}`}>
     <div className="absolute left-0 top-0 w-[85%] aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl z-10 transform -rotate-2">
       <img 
-        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" 
+        src="/foto1.webp" 
         alt="Exclusive Customs Office" 
         className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
       />
     </div>
     <div className="absolute right-0 bottom-4 w-[75%] aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 transform rotate-2 translate-y-4">
       <img 
-        src="https://images.unsplash.com/photo-1621359953476-b16299a78001?auto=format&fit=crop&q=80&w=800" 
+        src="/interier.webp" 
         alt="Workshop detailing" 
         className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
       />

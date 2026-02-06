@@ -42,7 +42,7 @@ const ComparisonSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-10 items-start">
           <div className={`${isVisible ? 'animate-fade-up' : 'opacity-0'} transition-all duration-1000 md:-translate-y-12`}>
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-black leading-tight font-sans">
-              Bolí vás každý kamínek na kapotě? Bojíte se parkovat vedle ostatních aut? Stresujete se z každého škrábance?
+              Nemůžete se rozhodnout, jestli auto pravidelně ošetřovat, investovat do ochrany, nebo ho nechat napospas?
             </h2>
           </div>
           

@@ -118,6 +118,15 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                 {!submitted ? (
                   <form onSubmit={handleSubmit} className="space-y-6 animate-fade-up">
                     <div className="space-y-4">
+                       <div className="relative">
+                        <input
+                          required
+                          type="text"
+                          id="name"
+                          placeholder="Jméno a Příjmení"
+                          className="w-full bg-white/5 border border-white/10 py-5 px-8 text-white placeholder:text-white/20 rounded-full outline-none focus:border-brand focus:bg-white/10 transition-all font-sans text-lg md:text-xl"
+                        />
+                      </div>
                       <div className="relative">
                         <input
                           required

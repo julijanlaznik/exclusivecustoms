@@ -91,7 +91,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#0a1111] bg-gray-800 flex items-center justify-center overflow-hidden">
                     <img 
-                      src={`/avatar.webp{i + 10}`} 
+                      src={`https://i.pravatar.cc/100?u=${i + 10}`} 
                       alt="User" 
                       className="w-full h-full object-cover grayscale opacity-80"
                     />

@@ -48,7 +48,7 @@ const ComparisonSection: React.FC = () => {
           
           <div className={`${isVisible ? 'animate-fade-up delay-2' : 'opacity-0'} transition-all duration-1000 md:translate-y-[200px]`}>
             <p className="text-gray-600 text-sm md:text-lg leading-relaxed font-sans">
-              Každý den vaše auto čelí ostrým kamínkům, špíně a nepříznivému počasí. Bez ochrany lak postupně ztrácí lesk, vzhled i hodnotu. 
+              Každý den vaše auto čelí ostrým kamínkům, špíně a nepříznivému počasí. Bez ochrany lak postupně ztrácí lesk, vzhled i hodnotu.
               <span className="block mt-3 md:mt-4 text-black font-medium">
                 S ochranou zůstává vaše auto jako nové – nejen dnes, ale i na roky dopředu.
               </span>

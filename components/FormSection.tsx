@@ -33,6 +33,28 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
     setSubmitted(true);
   };
 
+  // Komponenta pro fotky, abychom ji nemuseli definovat dvakrát
+  const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
+    <div className={`relative h-48 md:h-56 max-w-sm animate-fade-up ${className}`}>
+      {/* Back photo: Office/Consultation */}
+      <div className="absolute left-0 top-0 w-3/4 aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl z-10 transform -rotate-2">
+        <img 
+          src="/foto1.webp" 
+          alt="Exclusive Customs Office" 
+          className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+        />
+      </div>
+      {/* Front photo: Workshop with cars */}
+      <div className="absolute right-4 bottom-0 w-2/3 aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 transform rotate-2 translate-y-4">
+        <img 
+          src="/interier.webp" 
+          alt="Workshop detailing" 
+          className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
+        />
+      </div>
+    </div>
+  );
+
   return (
     <section ref={ref} className="py-24 md:py-32 bg-[#0a1111] relative overflow-hidden min-h-[600px] flex items-center">
       {/* Background Glows */}
@@ -42,19 +64,19 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
-          {/* Left Side: Conversion Heading */}
+          {/* Left Side: Conversion Heading & Social Proof */}
           <div className="lg:w-[45%] w-full">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sans leading-[1.1] tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sans leading-[1.1] tracking-tight animate-fade-up">
               Chcete chránit <br />
               svůj vůz? <br />
               <span className="text-brand">Začněte zde.</span>
             </h2>
-            <p className="mt-6 text-white/40 text-lg font-light leading-relaxed max-w-sm font-sans">
+            <p className="mt-6 text-white/40 text-lg font-light leading-relaxed max-w-sm font-sans animate-fade-up delay-1">
               Prémiová PPF ochrana pro vozy, na kterých skutečně záleží. Stačí vyplnit kontakt a my se postaráme o zbytek.
             </p>
 
-            {/* Social Proof Element with requested line break */}
-            <div className="mt-8 flex items-center gap-4">
+            {/* Social Proof Element - Now above photos on desktop */}
+            <div className="mt-10 flex items-center gap-4 animate-fade-up delay-2">
               <div className="flex -space-x-3">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#0a1111] bg-gray-800 flex items-center justify-center overflow-hidden">
@@ -74,10 +96,13 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                 kteří své vozy již chrání.
               </p>
             </div>
+
+            {/* Desktop Photos: Below social proof */}
+            <ShowroomPhotos className="hidden lg:block mt-16 delay-3" />
           </div>
 
           {/* Right Side: Optimized Wide Form / Success Message */}
-          <div className="lg:w-[55%] w-full min-h-[450px] flex items-center">
+          <div className="lg:w-[55%] w-full flex flex-col items-center">
             <div className="relative w-full">
               {/* Subtle background glow */}
               <div className="absolute -inset-1 bg-brand/10 rounded-[3rem] blur-2xl pointer-events-none"></div>
@@ -148,9 +173,11 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                     </p>
                   </div>
                 )}
-
               </div>
             </div>
+
+            {/* Mobile Photos: Below the form card */}
+            <ShowroomPhotos className="lg:hidden mt-20 mb-8" />
           </div>
 
         </div>

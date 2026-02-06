@@ -1,22 +1,19 @@
 
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useState, useEffect, useRef } from 'react';
 
-// Komponenta pro fotky definovaná mimo, aby se zabránilo zbytečnému odpojování a připojování (unmount/remount)
-// při každém re-renderu FormSection (např. při psaní do inputu), což způsobovalo problikávání animací.
+// Komponenta pro fotky definovaná mimo, aby se zabránilo zbytečnému odpojování a připojování
 const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
   <div className={`relative h-56 md:h-64 w-full max-w-[340px] md:max-w-sm mx-auto lg:mx-0 animate-fade-up ${className}`}>
-    {/* Back photo: Office/Consultation */}
     <div className="absolute left-0 top-0 w-[85%] aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl z-10 transform -rotate-2">
       <img 
-        src="/foto1.webp" 
+        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" 
         alt="Exclusive Customs Office" 
         className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
       />
     </div>
-    {/* Front photo: Workshop with cars */}
     <div className="absolute right-0 bottom-4 w-[75%] aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 transform rotate-2 translate-y-4">
       <img 
-        src="/interier.webp" 
+        src="https://images.unsplash.com/photo-1621359953476-b16299a78001?auto=format&fit=crop&q=80&w=800" 
         alt="Workshop detailing" 
         className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
       />
@@ -27,27 +24,38 @@ const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
 const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('+420 ');
+  const [isHeadlineVisible, setIsHeadlineVisible] = useState(false);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeadlineVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (headlineRef.current) {
+      observer.observe(headlineRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let input = e.target.value;
-    
-    // Zamezení smazání předvolby +420 a mezery za ní
     if (!input.startsWith('+420 ')) {
       input = '+420 ';
     }
-
-    // Extrahujeme pouze číslice, které uživatel napsal ZA předvolbu
     const rawDigits = input.substring(5).replace(/\D/g, '').substring(0, 9);
-    
-    // Formátování: +420 123 456 789
     let formatted = '+420 ';
     for (let i = 0; i < rawDigits.length; i++) {
-      if (i > 0 && i % 3 === 0) {
-        formatted += ' ';
-      }
+      if (i > 0 && i % 3 === 0) formatted += ' ';
       formatted += rawDigits[i];
     }
-
     setPhone(formatted);
   };
 
@@ -58,25 +66,26 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
 
   return (
     <section ref={ref} className="py-24 md:py-32 bg-[#0a1111] relative overflow-hidden min-h-[600px] flex items-center">
-      {/* Background Glows */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[700px] h-[700px] bg-brand/10 rounded-full blur-[180px] -z-10"></div>
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[130px] -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
-          {/* Left Side: Conversion Heading & Social Proof */}
           <div className="lg:w-[45%] w-full text-left">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sans leading-[1.1] tracking-tight animate-fade-up">
+            <h2 ref={headlineRef} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sans leading-[1.1] tracking-tight animate-fade-up">
               Chcete chránit <br />
               svůj vůz? <br />
-              <span className="text-brand">Začněte zde.</span>
+              <span className="inline-block overflow-hidden h-[1.2em] -mb-[0.2em]">
+                <span className={`inline-block text-brand opacity-0 ${isHeadlineVisible ? 'animate-reveal' : ''}`} style={{ animationDelay: '0.4s' }}>
+                  Začněte zde.
+                </span>
+              </span>
             </h2>
             <p className="mt-6 text-white/40 text-lg font-light leading-relaxed max-w-sm font-sans animate-fade-up delay-1">
               Prémiová PPF ochrana pro vozy, na kterých skutečně záleží. Stačí vyplnit kontakt a my se postaráme o zbytek.
             </p>
 
-            {/* Social Proof Element */}
             <div className="mt-10 flex items-center gap-4 animate-fade-up delay-2">
               <div className="flex -space-x-3">
                 {[1, 2, 3].map((i) => (
@@ -98,16 +107,12 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
               </p>
             </div>
 
-            {/* Desktop Photos: Below social proof */}
             <ShowroomPhotos className="hidden lg:block mt-16 delay-3" />
           </div>
 
-          {/* Right Side: Optimized Wide Form / Success Message */}
           <div className="lg:w-[55%] w-full flex flex-col items-center">
             <div className="relative w-full">
-              {/* Subtle background glow */}
               <div className="absolute -inset-1 bg-brand/10 rounded-[3rem] blur-2xl pointer-events-none"></div>
-              
               <div className="relative bg-[#111c1c]/80 backdrop-blur-md border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl transition-all duration-500 min-h-[450px] flex flex-col justify-center">
                 
                 {!submitted ? (
@@ -122,7 +127,6 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                           className="w-full bg-white/5 border border-white/10 py-5 px-8 text-white placeholder:text-white/20 rounded-full outline-none focus:border-brand focus:bg-white/10 transition-all font-sans text-lg md:text-xl"
                         />
                       </div>
-
                       <div className="relative">
                         <input
                           required
@@ -134,7 +138,6 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                           className="w-full bg-white/5 border border-white/10 py-5 px-8 text-white placeholder:text-white/20 rounded-full outline-none focus:border-brand focus:bg-white/10 transition-all font-sans text-lg md:text-xl"
                         />
                       </div>
-
                       <div className="relative">
                         <textarea
                           id="note"
@@ -144,7 +147,6 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                         ></textarea>
                       </div>
                     </div>
-
                     <div className="pt-4">
                       <button
                         type="submit"
@@ -155,7 +157,6 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                         </span>
                         <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                       </button>
-                      
                       <p className="text-center mt-6 text-[10px] md:text-xs text-white/30 uppercase tracking-[0.2em] font-sans">
                         Odpovídáme průměrně do 2 hodin
                       </p>
@@ -176,8 +177,6 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                 )}
               </div>
             </div>
-
-            {/* Mobile Photos: Definitely visible here below the form card */}
             <ShowroomPhotos className="lg:hidden mt-20 mb-8" />
           </div>
 

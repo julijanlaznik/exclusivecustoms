@@ -44,8 +44,8 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
               99,9 % ochrana<br />proti škrábancům
             </h1>
             
-           <p className="mt-4 md:mt-6 text-sm md:text-xl text-white/90 max-w-2xl leading-relaxed font-extralight drop-shadow-md animate-fade-up delay-1">
-             Ochranit lak auta není jednoduché. S naší PPF fólií získáte spolehlivou ochranu a klid na roky. Přidejte se k více než 500 majitelům, kteří už své vozy chrání s námi.
+          <p className="mt-4 md:mt-6 text-sm md:text-lg text-white/90 max-w-2xl leading-relaxed font-extralight drop-shadow-md animate-fade-up delay-1">
+            Ochránit lak auta není jednoduché. S naší PPF fólií získáte spolehlivou ochranu a klid na roky. Přidejte se k více než 500 majitelům, kteří už své vozy chrání s námi.
           </p>
             <div className="mt-8 md:mt-10 flex flex-col items-start animate-fade-up delay-2">
               <button

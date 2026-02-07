@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
             </h1>
             
            <p className="mt-4 md:mt-6 text-sm md:text-xl text-white/90 max-w-2xl leading-relaxed font-extralight drop-shadow-md animate-fade-up delay-1">
-              Neviditelná PPF fólie, která chrání lak vašeho auta před škrábanci, kamínky a běžným opotřebením – každý den, při každé jízdě.
+             Ochranit lak auta není jednoduché. S naší PPF fólií získáte spolehlivou ochranu a klid na roky. Přidejte se k více než 500 majitelům, kteří už své vozy chrání s námi.
           </p>
             <div className="mt-8 md:mt-10 flex flex-col items-start animate-fade-up delay-2">
               <button
@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
                   </div>
                 </div>
                 <p className="text-[10px] md:text-sm font-black text-white">
-                  4,9 / 5 <span className="font-extralight opacity-80 ml-1">| 456 recenzí</span>
+                  4,9 / 5 <span className="font-extralight opacity-80 ml-1">| 342 recenzí</span>
                 </p>
               </div>
             </div>

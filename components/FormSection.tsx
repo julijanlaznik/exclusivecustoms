@@ -15,8 +15,6 @@ const ShowroomPhotos = ({ className = "" }: { className?: string }) => (
 const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('+420 ');
-
-  // 🔥 NOVÉ STATE (nutné pro odeslání dat)
   const [name, setName] = useState('');
   const [car, setCar] = useState('');
   const [note, setNote] = useState('');
@@ -48,33 +46,32 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
     setPhone(formatted);
   };
 
-  // 🚀 TADY JE TA FUNKČNOST
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formData = new FormData();
-  formData.append('name', name);
-  formData.append('car', car);
-  formData.append('phone', phone);
-  formData.append('note', note);
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('car', car);
+    formData.append('phone', phone);
+    formData.append('note', note);
 
-  try {
-    await fetch('https://hooks.zapier.com/hooks/catch/25611644/ue3y3ao/', {
-      method: 'POST',
-      body: formData,
-    });
-
-    setSubmitted(true);
-  } catch (err) {
-    console.error('Zapier error:', err);
-  }
-};
+    try {
+      await fetch('https://hooks.zapier.com/hooks/catch/25611644/ue3y3ao/', {
+        method: 'POST',
+        body: formData,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Zapier error:', err);
+    }
+  };
 
   return (
     <section ref={ref} className="py-24 md:py-32 bg-[#0a1111] relative overflow-hidden min-h-[600px] flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
+          {/* LEVÁ STRANA */}
           <div className="lg:w-[45%] w-full text-left">
             <h2 ref={headlineRef} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight animate-fade-up">
               Chcete chránit <br />svůj vůz? <br />
@@ -84,56 +81,42 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
                 </span>
               </span>
             </h2>
+
+            <p className="mt-6 text-white/40 text-lg max-w-sm animate-fade-up delay-1">
+              Prémiová PPF ochrana pro vozy, na kterých záleží. Nechte nám kontakt, ozveme se vám a vše spolu nezávazně probereme.
+            </p>
+
+            <div className="mt-10 flex items-center gap-4 animate-fade-up delay-2">
+              <div className="flex -space-x-3">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#0a1111] bg-gray-800 overflow-hidden">
+                    <img src={`https://i.pravatar.cc/100?u=${i + 10}`} className="w-full h-full object-cover grayscale opacity-80" />
+                  </div>
+                ))}
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand flex items-center justify-center text-black text-xs font-bold">
+                  +500
+                </div>
+              </div>
+              <p className="text-white/60 text-sm max-w-[200px]">
+                Přidejte se k <span className="text-white font-bold">500+ majitelům</span>,<br />
+                kteří své vozy již chrání.
+              </p>
+            </div>
+
+            <ShowroomPhotos className="hidden lg:block mt-16 delay-3" />
           </div>
 
+          {/* PRAVÁ STRANA */}
           <div className="lg:w-[55%] w-full">
             <div className="relative bg-[#111c1c]/80 backdrop-blur-md border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl min-h-[450px] flex items-center justify-center">
 
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6 w-full">
-
-                  <input
-                    required
-                    type="text"
-                    placeholder="Jméno a Příjmení"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 py-5 px-8 text-white rounded-full"
-                  />
-
-                  <input
-                    required
-                    type="text"
-                    placeholder="Značka a model auta"
-                    value={car}
-                    onChange={(e) => setCar(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 py-5 px-8 text-white rounded-full"
-                  />
-
-                  <input
-                    required
-                    type="tel"
-                    value={phone}
-                    onChange={handlePhoneChange}
-                    placeholder="+420 000 000 000"
-                    className="w-full bg-white/5 border border-white/10 py-5 px-8 text-white rounded-full"
-                  />
-
-                  <textarea
-                    rows={3}
-                    placeholder="Chcete se zeptat na termín nebo konkrétní balíček?"
-                    value={note}
-                    onChange={(e) => setNote(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 py-6 px-8 text-white rounded-[2rem] resize-none"
-                  />
-
-                  <button
-                    type="submit"
-                    className="w-full py-5 bg-brand text-black font-bold rounded-full"
-                  >
-                    Chci se poradit →
-                  </button>
-
+                  <input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Jméno a Příjmení" className="w-full bg-white/5 py-5 px-8 text-white rounded-full" />
+                  <input required value={car} onChange={(e) => setCar(e.target.value)} placeholder="Značka a model auta" className="w-full bg-white/5 py-5 px-8 text-white rounded-full" />
+                  <input required value={phone} onChange={handlePhoneChange} placeholder="+420 000 000 000" className="w-full bg-white/5 py-5 px-8 text-white rounded-full" />
+                  <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={3} placeholder="Chcete se zeptat na termín nebo konkrétní balíček?" className="w-full bg-white/5 py-6 px-8 text-white rounded-[2rem]" />
+                  <button type="submit" className="w-full py-5 bg-brand text-black font-bold rounded-full">Chci se poradit →</button>
                 </form>
               ) : (
                 <div className="text-center text-white">
@@ -143,6 +126,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
               )}
 
             </div>
+            <ShowroomPhotos className="lg:hidden mt-20 mb-8" />
           </div>
 
         </div>

@@ -1,6 +1,6 @@
 import React, { forwardRef, useState, useEffect, useRef } from 'react';
 
-const ZAPIER_HOOK_URL = "https://hooks.zapier.com/hooks/catch/XXX/YYY/";
+const ZAPIER_HOOK_URL = "https://hooks.zapier.com/hooks/catch/25611644/ue3y3ao/";
 
 // Komponenta pro fotky definovaná mimo
 const ShowroomPhotos = ({ className = "" }: { className?: string }) => (

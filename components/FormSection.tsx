@@ -76,7 +76,7 @@ const FormSection = forwardRef<HTMLDivElement>((props, ref) => {
             <h2 ref={headlineRef} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight animate-fade-up">
               Chcete chránit <br />svůj vůz? <br />
               <span className="inline-block overflow-hidden h-[1.2em] -mb-[0.2em]">
-                <span className={`inline-block text-brand opacity-0 ${isHeadlineVisible ? 'animate-reveal' : ''}`} style={{ animationDelay: '1s' }}>
+                <span className={`inline-block text-brand opacity-0 ${isHeadlineVisible ? 'animate-reveal' : ''}`} style={{ animationDelay: '0.8s' }}>
                   Začněte zde.
                 </span>
               </span>

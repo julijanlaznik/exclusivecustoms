@@ -79,6 +79,14 @@ const ProjectsGrid: React.FC = () => {
     { url: '/foto6.webp', alt: 'Shelby Cobra', span: 'md:col-span-1 md:row-span-1' },
     { url: '/foto7.webp', alt: 'BMW M8', span: 'md:col-span-1 md:row-span-1' },
     { url: '/foto8.webp', alt: 'Jaguar F-Type', span: 'md:col-span-1 md:row-span-1' },
+    { url: '/foto1.webp', alt: 'Porsche 911 GT3', span: 'md:col-span-2 md:row-span-2' },
+    { url: '/foto2.webp', alt: 'Lamborghini Huracán', span: 'md:col-span-1 md:row-span-1' },
+    { url: '/foto3.webp', alt: 'Luxury Showroom', span: 'md:col-span-1 md:row-span-1' },
+    { url: '/foto4.webp', alt: 'BMW M4 Competition', span: 'md:col-span-2 md:row-span-1' },
+    { url: '/foto5.webp', alt: 'Mercedes AMG G63', span: 'md:col-span-1 md:row-span-1' },
+    { url: '/foto6.webp', alt: 'Ferrari F8 Tributo', span: 'md:col-span-1 md:row-span-1' },
+    { url: '/foto7.webp', alt: 'Porsche Taycan', span: 'md:col-span-1 md:row-span-1' },
+    { url: '/foto8.webp', alt: 'Detail laku', span: 'md:col-span-1 md:row-span-1' },
   ];
 
   return (

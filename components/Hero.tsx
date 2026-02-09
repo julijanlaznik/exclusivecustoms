@@ -51,8 +51,19 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
               <button
                 onClick={onCtaClick}
                 onMouseEnter={handleMouseEnter}
-                className="w-full md:w-auto cta-button px-10 py-4 md:px-12 md:py-5 rounded-full text-lg md:text-xl font-bold shadow-2xl"
-              >
+className="
+  w-full md:w-auto
+  cta-button
+  px-6 py-3
+  md:px-12 md:py-5
+  text-base
+  md:text-xl
+  whitespace-nowrap
+  rounded-full
+  font-bold
+  shadow-2xl
+"
+>
                 Domluvit nezávaznou konzultaci →
               </button>
               

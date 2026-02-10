@@ -91,7 +91,7 @@ const FeatureGridSection: React.FC<FeatureGridSectionProps> = ({ onCtaClick }) =
 
               <div className="relative overflow-hidden rounded-[2rem]">
                 <video
-                  src="/ppf-aplikace.mp4"
+                  src="/ppf-proces.mp4"
                   autoPlay
                   loop
                   muted

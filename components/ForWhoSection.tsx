@@ -114,11 +114,16 @@ const ForWhoSection: React.FC<ForWhoSectionProps> = ({ onCtaClick }) => {
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#5ccdc5]/5 rounded-full blur-3xl -z-10"></div>
               
               <div className="relative overflow-hidden rounded-[3rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] border border-gray-100">
-                <img 
-                  src="foto4.webp" 
-                  alt="Luxusní auto v péči Exclusive Customs" 
-                  className="w-full h-[500px] lg:h-[700px] object-cover transition-transform duration-[2s] group-hover:scale-105"
-                />
+                <video
+  src="/ppf-video.mp4"   // název si uprav podle sebe
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="w-full h-[500px] lg:h-[700px] object-cover transition-transform duration-[2s] group-hover:scale-105"
+>
+  Váš prohlížeč nepodporuje video.
+</video>
               </div>
             </div>
           </div>
